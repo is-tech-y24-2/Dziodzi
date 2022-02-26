@@ -1,7 +1,7 @@
-package entities;
+package ru.itmo.entities;
 
-import tools.MoneyException;
-import tools.PercentException;
+import ru.itmo.tools.MoneyException;
+import ru.itmo.tools.PercentException;
 
 public class PercentsAndSums {
 
@@ -17,11 +17,11 @@ public class PercentsAndSums {
         this.sum = sum;
     }
 
-    public Double getPercent(){
+    public Double getPercent() {
         return this.percent;
     }
 
-    public Double getSum(){
+    public Double getSum() {
         return this.sum;
     }
 }

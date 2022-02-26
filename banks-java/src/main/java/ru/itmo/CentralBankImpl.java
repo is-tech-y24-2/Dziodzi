@@ -1,23 +1,24 @@
-package services;
+package ru.itmo;
 
-import entities.BankImpl;
-import interfaces.BankAccount;
-import interfaces.CentralBank;
-import tools.BankException;
+import ru.itmo.entities.BankImpl;
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.interfaces.CentralBank;
+import ru.itmo.tools.BankException;
+
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CentralBankImpl implements CentralBank {
 
     private static CentralBankImpl instance;
-    private ArrayList<BankImpl> banks = new ArrayList<>();
+    private List<BankImpl> banks = new ArrayList<>();
 
-    public CentralBankImpl()
-    { }
+    public CentralBankImpl() {
+    }
 
-    public static CentralBankImpl getInstance()
-    {
+    public static CentralBankImpl getInstance() {
         if (instance == null)
             instance = new CentralBankImpl();
         return instance;
@@ -28,7 +29,7 @@ public class CentralBankImpl implements CentralBank {
     }
 
     public BankImpl findBank(String bankName) throws BankException {
-        for(BankImpl bank : banks) {
+        for (BankImpl bank : banks) {
             if (Objects.equals(bank.getBankName(), bankName)) {
                 return bank;
             }
@@ -37,8 +38,8 @@ public class CentralBankImpl implements CentralBank {
     }
 
     public void skipTime(OffsetDateTime date) {
-        for(BankImpl bank : this.banks)
-            for(BankAccount account : bank.getAccounts())
+        for (BankImpl bank : this.banks)
+            for (BankAccount account : bank.getAccounts())
                 account.skipTime(date);
     }
 }

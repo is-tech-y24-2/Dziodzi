@@ -1,9 +1,9 @@
-package entities;
+package ru.itmo.entities;
 
-import interfaces.BankAccount;
-import tools.DateException;
-import tools.MoneyException;
-import tools.PercentException;
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.tools.DateException;
+import ru.itmo.tools.MoneyException;
+import ru.itmo.tools.PercentException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -11,12 +11,12 @@ import java.util.UUID;
 public class DepositAccount implements BankAccount {
 
     private final UUID clientId;
-    private Double balance;
     private final Double percent;
     private final OffsetDateTime expirationDate;
     private final UUID accountId;
     private final OffsetDateTime creationTime;
     private final OffsetDateTime lastInterestChargeTime;
+    private Double balance;
 
     public DepositAccount(UUID clientId, Double balance, Double percent, OffsetDateTime expirationDate) throws MoneyException, PercentException, DateException {
         if (percent <= 0)
@@ -33,12 +33,13 @@ public class DepositAccount implements BankAccount {
         this.creationTime = OffsetDateTime.now();
         this.lastInterestChargeTime = OffsetDateTime.now();
     }
-    public UUID getAccountId(){
+
+    public UUID getAccountId() {
         return this.accountId;
     }
 
-    public String getAccountType() {
-        return "Deposit";
+    public AccountTypes getAccountType() {
+        return AccountTypes.Deposit;
     }
 
     public UUID getClientId() {
@@ -49,12 +50,14 @@ public class DepositAccount implements BankAccount {
         return this.balance;
     }
 
+    @Override
     public void put(Double sum) throws MoneyException {
         if (sum <= 0)
             throw new MoneyException("Invalid sum for put");
         this.balance += sum;
     }
 
+    @Override
     public void withdraw(Double sum) throws DateException, MoneyException {
         if (this.expirationDate.isAfter(OffsetDateTime.now()))
             throw new DateException("You can't withdraw before the expiration date");
@@ -63,6 +66,7 @@ public class DepositAccount implements BankAccount {
         this.balance -= sum;
     }
 
+    @Override
     public void transfer(Double sum, BankAccount account) throws MoneyException, DateException {
         if (this.expirationDate.isAfter(OffsetDateTime.now()))
             throw new DateException("You can't transfer before the expiration date");
@@ -70,6 +74,7 @@ public class DepositAccount implements BankAccount {
         account.put(sum);
     }
 
+    @Override
     public void skipTime(OffsetDateTime time) {
         OffsetDateTime days = time.minusDays(this.lastInterestChargeTime.getDayOfMonth());
         for (Integer i = 0; days.getDayOfMonth() > i; i++)

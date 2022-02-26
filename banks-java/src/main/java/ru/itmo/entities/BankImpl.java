@@ -1,21 +1,23 @@
-package entities;
+package ru.itmo.entities;
 
-import interfaces.Bank;
-import interfaces.BankAccount;
-import tools.*;
+import ru.itmo.interfaces.Bank;
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.tools.*;
+
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 public class BankImpl implements Bank {
 
-    private ArrayList<BankAccount> accounts;
-    private ArrayList<PercentsAndSums> percents;
-    private ArrayList<Client> clients;
-    private ArrayList<Subscriber> subscribers;
-    private ArrayList<Transaction> transactions;
+    private List<BankAccount> accounts;
+    private List<PercentsAndSums> percents;
+    private List<Client> clients;
+    private List<Subscriber> subscribers;
+    private List<Transaction> transactions;
     private String name;
     private Double commission;
     private Double limit;
@@ -57,23 +59,23 @@ public class BankImpl implements Bank {
         return this.depositPercent;
     }
 
-    public ArrayList<BankAccount> getAccounts() {
+    public List<BankAccount> getAccounts() {
         return this.accounts;
     }
 
-    public ArrayList<PercentsAndSums> getPercents() {
+    public List<PercentsAndSums> getPercents() {
         return this.percents;
     }
 
-    public ArrayList<Client> getClients() {
+    public List<Client> getClients() {
         return this.clients;
     }
 
-    public ArrayList<Subscriber> getSubscribers() {
+    public List<Subscriber> getSubscribers() {
         return this.subscribers;
     }
 
-    public ArrayList<Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         return this.transactions;
     }
 
@@ -172,7 +174,7 @@ public class BankImpl implements Bank {
 
     public void addSubscriber(Client client) throws ClientException {
         Boolean flag = false;
-        for(Subscriber subscriber : this.subscribers)
+        for (Subscriber subscriber : this.subscribers)
             if (subscriber.getClient() == client)
                 flag = true;
         if (flag)
@@ -197,8 +199,8 @@ public class BankImpl implements Bank {
         for (Transaction transaction : this.transactions)
             if (Objects.equals(transaction.getOperationId(), operationId))
                 return transaction;
-            throw new TransactionException("There is no transaction with this Id");
-        }
-
-
+        throw new TransactionException("There is no transaction with this Id");
     }
+
+
+}

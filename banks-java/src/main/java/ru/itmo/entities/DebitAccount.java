@@ -1,7 +1,7 @@
-package entities;
+package ru.itmo.entities;
 
-import interfaces.BankAccount;
-import tools.MoneyException;
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.tools.MoneyException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -22,12 +22,12 @@ public class DebitAccount implements BankAccount {
         this.balance = balance;
     }
 
-    public UUID getAccountId(){
+    public UUID getAccountId() {
         return this.accountId;
     }
 
-    public String getAccountType() {
-        return "Debit";
+    public AccountTypes getAccountType() {
+        return AccountTypes.Debit;
     }
 
     public UUID getClientId() {
@@ -38,23 +38,27 @@ public class DebitAccount implements BankAccount {
         return this.balance;
     }
 
+    @Override
     public void put(Double sum) throws MoneyException {
         if (sum <= 0)
             throw new MoneyException("Invalid sum for put");
         this.balance += sum;
     }
 
+    @Override
     public void withdraw(Double sum) throws MoneyException {
         if (sum >= this.balance)
             throw new MoneyException("Invalid sum for withdraw");
         this.balance -= sum;
     }
 
+    @Override
     public void transfer(Double sum, BankAccount account) throws MoneyException {
         this.withdraw(sum);
         account.put(sum);
     }
 
+    @Override
     public void skipTime(OffsetDateTime time) {
     }
 }

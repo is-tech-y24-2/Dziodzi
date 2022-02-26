@@ -1,16 +1,17 @@
-package entities;
+package ru.itmo.entities;
 
-import tools.*;
+import ru.itmo.tools.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Client {
 
     private final String nameSurname;
     private final UUID clientId;
-    private final ArrayList<String> notifications;
+    private final List<String> notifications;
     private String address;
     private String passportData;
     private Boolean clientStatus;
@@ -25,28 +26,43 @@ public class Client {
         notifications = new ArrayList<String>();
     }
 
-    public String getNameSurname(){
+    public String getNameSurname() {
         return this.nameSurname;
     }
 
-    public Boolean getClientStatus(){
+    public Boolean getClientStatus() {
         return this.clientStatus;
     }
 
-    public UUID getClientId(){
+    public UUID getClientId() {
         return this.clientId;
     }
 
-    public ArrayList<String> getNotifications(){
+    public List<String> getNotifications() {
         return this.notifications;
     }
 
-    public String getAddress(){
+    public String getAddress() {
         return this.address;
     }
 
-    public String getPassportData(){
+    public void setAddress(String address) throws ClientException {
+        if (address == null)
+            throw new ClientException("Empty address data");
+        String currentAddress = this.address;
+        this.address = address;
+        setClientStatus();
+    }
+
+    public String getPassportData() {
         return this.passportData;
+    }
+
+    public void setPassportData(String passportData) throws ClientException {
+        if (passportData == null)
+            throw new ClientException("Empty passport data");
+        this.passportData = passportData;
+        setClientStatus();
     }
 
     public void addNotification(String message) throws NotificationException {
@@ -55,22 +71,7 @@ public class Client {
         notifications.add(OffsetDateTime.now() + ": " + message);
     }
 
-    public void setAddress (String address) throws ClientException {
-        if (address == null)
-            throw new ClientException("Empty address data");
-        String currentAddress = this.address;
-        this.address = address;
-        setClientStatus();
-    }
-
-    public void setPassportData (String passportData) throws ClientException {
-        if (passportData == null)
-            throw new ClientException("Empty passport data");
-        this.passportData = passportData;
-        setClientStatus();
-    }
-
-    public void setClientStatus () {
+    public void setClientStatus() {
         if (this.passportData != null && (this.address != null))
             clientStatus = true;
     }
@@ -91,13 +92,13 @@ public class Client {
         return new Subscriber(this);
     }
 
-    public void unsubscribe(ArrayList<Subscriber> list) throws ClientException {
+    public void unsubscribe(List<Subscriber> list) throws ClientException {
         Boolean flag = false;
-        for(Subscriber subscriber : list)
+        for (Subscriber subscriber : list)
             if (subscriber.getClient() == this)
                 list.remove(subscriber);
-                flag = true;
+        flag = true;
         if (!flag)
             throw new ClientException("This client wasn't subscriber");
-        }
+    }
 }

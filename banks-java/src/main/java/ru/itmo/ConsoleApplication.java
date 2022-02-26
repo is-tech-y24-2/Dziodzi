@@ -1,7 +1,8 @@
-import interfaces.BankAccount;
-import interfaces.CentralBank;
-import services.CentralBankImpl;
-import tools.*;
+package ru.itmo;
+
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.interfaces.CentralBank;
+import ru.itmo.tools.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.UUID;
 
 public class ConsoleApplication {
 
-    private static CentralBankImpl centralBank = CentralBankImpl.getInstance();
     static Scanner in = new Scanner(System.in);
+    private static CentralBankImpl centralBank = CentralBankImpl.getInstance();
 
     public static void main(String[] args) throws BankException, ClientException, MoneyException, PercentException, DateException, AccountException, TransactionException {
         System.out.print("Welcome to Central Bank Console Application!");
@@ -154,23 +155,19 @@ public class ConsoleApplication {
         System.out.println("Do you want to add the address?");
         System.out.println("Enter 0 to add address, enter 1 to not add");
         String addressStatus = in.next();
-        switch (addressStatus)
-        {
-            case "0":
-            {
+        switch (addressStatus) {
+            case "0": {
                 System.out.println("Enter the address of new client:");
                 String address = in.next();
                 centralBank.findBank(bankName).findClient(id).setAddress(address);
                 break;
             }
 
-            case "1":
-            {
+            case "1": {
                 break;
             }
 
-            default:
-            {
+            default: {
                 throw new ClientException("Incorrect enter");
             }
         }
@@ -178,23 +175,19 @@ public class ConsoleApplication {
         System.out.println("Do you want to add the passport data?");
         System.out.println("Enter 0 to add address, enter 1 to not add");
         String passportDataStatus = in.next();
-        switch (passportDataStatus)
-        {
-            case "0":
-            {
+        switch (passportDataStatus) {
+            case "0": {
                 System.out.println("Enter the passport data of new client:");
                 String passportData = in.next();
                 CentralBank.findBank(bankName).findClient(id).setPassportData(passportData);
                 break;
             }
 
-            case "1":
-            {
+            case "1": {
                 break;
             }
 
-            default:
-            {
+            default: {
                 throw new ClientException("Incorrect enter");
             }
         }
@@ -212,8 +205,7 @@ public class ConsoleApplication {
         System.out.println("Enter the type of account:");
         String type = in.next();
         UUID accountId;
-        switch (type)
-        {
+        switch (type) {
             case "Debit":
                 accountId = centralBank.findBank(bankName).addDebitAccount(id, 0.0);
                 System.out.println("New Debit Account was successfully created!");
@@ -272,7 +264,7 @@ public class ConsoleApplication {
         System.out.println("Enter the id of the sender account:");
         UUID id1 = UUID.fromString(in.next());
         System.out.println("Enter the id of the taker account:");
-        UUID id2  = UUID.fromString(in.next());
+        UUID id2 = UUID.fromString(in.next());
         Double balance1 = centralBank.findBank(bankName).findAccount(id1).getBalance();
         System.out.println("Current balance (sender): " + balance1);
         Double balance2 = centralBank.findBank(bankName).findAccount(id1).getBalance();
@@ -329,8 +321,7 @@ public class ConsoleApplication {
         System.out.println("Do you want to Subscribe or Unsubscribe?");
         String pass = in.next();
 
-        switch (pass)
-        {
+        switch (pass) {
             case "Subscribe":
                 centralBank.findBank(bankName).addSubscriber(centralBank.findBank(bankName).findClient(id));
                 break;
@@ -395,8 +386,7 @@ public class ConsoleApplication {
         UUID id = UUID.fromString(in.next());
         ArrayList<BankAccount> list = centralBank.findBank(bankName).showAllClientAccounts(id);
         System.out.println("--------------------------");
-        for(BankAccount i : list)
-        {
+        for (BankAccount i : list) {
             System.out.println(i.getAccountType() + " : " + i.getAccountId());
         }
 

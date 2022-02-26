@@ -1,7 +1,8 @@
-package interfaces;
+package ru.itmo.interfaces;
 
-import entities.Client;
-import tools.*;
+import ru.itmo.entities.Client;
+import ru.itmo.tools.*;
+
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;

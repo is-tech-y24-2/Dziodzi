@@ -1,6 +1,6 @@
-package entities;
+package ru.itmo.entities;
 
-import tools.ClientException;
+import ru.itmo.tools.ClientException;
 
 public class Subscriber {
 
@@ -12,7 +12,7 @@ public class Subscriber {
         this.client = client;
     }
 
-    public Client getClient(){
+    public Client getClient() {
         return this.client;
     }
 }

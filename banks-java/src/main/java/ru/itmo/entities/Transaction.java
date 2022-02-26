@@ -1,9 +1,9 @@
-package entities;
+package ru.itmo.entities;
 
-import interfaces.BankAccount;
-import tools.DateException;
-import tools.MoneyException;
-import tools.TransactionException;
+import ru.itmo.interfaces.BankAccount;
+import ru.itmo.tools.DateException;
+import ru.itmo.tools.MoneyException;
+import ru.itmo.tools.TransactionException;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ public class Transaction {
     private UUID operationId;
     private Boolean isCancelled;
 
-    Transaction(BankAccount accountWithdraw, BankAccount accountPut, Double sum){
+    Transaction(BankAccount accountWithdraw, BankAccount accountPut, Double sum) {
         this.accountWithdraw = accountWithdraw;
         this.accountPut = accountPut;
         this.sum = sum;
@@ -23,23 +23,23 @@ public class Transaction {
         this.isCancelled = false;
     }
 
-    public BankAccount getAccountWithdraw(){
+    public BankAccount getAccountWithdraw() {
         return this.accountWithdraw;
     }
 
-    public BankAccount getAccountPut(){
+    public BankAccount getAccountPut() {
         return this.accountPut;
     }
 
-    public Double getSum(){
+    public Double getSum() {
         return this.sum;
     }
 
-    public UUID getOperationId(){
+    public UUID getOperationId() {
         return this.operationId;
     }
 
-    public Boolean getIsCancelled(){
+    public Boolean getIsCancelled() {
         return this.isCancelled;
     }
 

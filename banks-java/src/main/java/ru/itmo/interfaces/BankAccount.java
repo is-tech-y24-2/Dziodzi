@@ -1,14 +1,14 @@
-package interfaces;
+package ru.itmo.interfaces;
 
-import tools.DateException;
-import tools.MoneyException;
+import ru.itmo.entities.AccountTypes;
+import ru.itmo.tools.DateException;
+import ru.itmo.tools.MoneyException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public interface BankAccount
-{
-    String getAccountType();
+public interface BankAccount {
+    AccountTypes getAccountType();
 
     UUID getAccountId();
 
