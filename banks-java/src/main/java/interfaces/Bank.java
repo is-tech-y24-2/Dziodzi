@@ -1,7 +1,7 @@
-package Interfaces;
+package interfaces;
 
-import Entities.Client;
-import Tools.*;
+import entities.Client;
+import tools.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;

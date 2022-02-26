@@ -1,11 +1,10 @@
-package Entities;
+package entities;
 
-import Interfaces.BankAccount;
-import Tools.DateException;
-import Tools.MoneyException;
-import Tools.TransactionException;
+import interfaces.BankAccount;
+import tools.DateException;
+import tools.MoneyException;
+import tools.TransactionException;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class Transaction {

@@ -1,7 +1,6 @@
-package Entities;
+package entities;
 
-import Interfaces.BankAccount;
-import Tools.*;
+import tools.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;

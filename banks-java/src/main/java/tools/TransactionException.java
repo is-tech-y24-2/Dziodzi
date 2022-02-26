@@ -1,4 +1,4 @@
-package Tools;
+package tools;
 
 public class TransactionException extends BanksException{
 

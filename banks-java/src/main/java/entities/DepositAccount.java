@@ -1,9 +1,9 @@
-package Entities;
+package entities;
 
-import Interfaces.BankAccount;
-import Tools.DateException;
-import Tools.MoneyException;
-import Tools.PercentException;
+import interfaces.BankAccount;
+import tools.DateException;
+import tools.MoneyException;
+import tools.PercentException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

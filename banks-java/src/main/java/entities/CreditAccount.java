@@ -1,25 +1,30 @@
-package Entities;
+package entities;
 
-import Interfaces.BankAccount;
-import Tools.MoneyException;
+import interfaces.BankAccount;
+import tools.MoneyException;
+import tools.PercentException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class DebitAccount implements BankAccount {
-
-    private final UUID accountId;
+public class CreditAccount implements BankAccount {
 
     private final UUID clientId;
-
     private Double balance;
+    private final Double commission;
+    private final UUID accountId;
+    private final OffsetDateTime lastInterestChargeTime;
 
-    public DebitAccount(UUID clientId, Double balance) throws MoneyException {
+    public CreditAccount(UUID clientId, Double balance, Double commission) throws PercentException, MoneyException {
+        if (commission <= 0)
+            throw new PercentException("Invalid commission");
         if (balance <= 0)
-            throw new MoneyException("Invalid balance for debit account");
+            throw new MoneyException("Invalid balance for credit account");
         this.clientId = clientId;
-        this.accountId = UUID.randomUUID();
         this.balance = balance;
+        this.commission = commission;
+        this.accountId = UUID.randomUUID();
+        this.lastInterestChargeTime = OffsetDateTime.now();
     }
 
     public UUID getAccountId(){
@@ -27,7 +32,7 @@ public class DebitAccount implements BankAccount {
     }
 
     public String getAccountType() {
-        return "Debit";
+        return "Credit";
     }
 
     public UUID getClientId() {
@@ -56,5 +61,8 @@ public class DebitAccount implements BankAccount {
     }
 
     public void skipTime(OffsetDateTime time) {
+        OffsetDateTime days = time.minusDays(this.lastInterestChargeTime.getDayOfMonth());
+        for (Integer i = 0; days.getDayOfMonth() > i; i++)
+            this.balance -= this.balance * commission;
     }
 }

@@ -1,7 +1,7 @@
-package Entities;
+package entities;
 
-import Tools.MoneyException;
-import Tools.PercentException;
+import tools.MoneyException;
+import tools.PercentException;
 
 public class PercentsAndSums {
 

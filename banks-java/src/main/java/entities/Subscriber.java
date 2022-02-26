@@ -1,6 +1,6 @@
-package Entities;
+package entities;
 
-import Tools.ClientException;
+import tools.ClientException;
 
 public class Subscriber {
 

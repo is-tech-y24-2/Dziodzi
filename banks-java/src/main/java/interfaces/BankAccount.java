@@ -1,7 +1,7 @@
-package Interfaces;
+package interfaces;
 
-import Tools.DateException;
-import Tools.MoneyException;
+import tools.DateException;
+import tools.MoneyException;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

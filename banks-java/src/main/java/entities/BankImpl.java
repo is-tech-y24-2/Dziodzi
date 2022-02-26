@@ -1,8 +1,8 @@
-package Entities;
+package entities;
 
-import Interfaces.Bank;
-import Interfaces.BankAccount;
-import Tools.*;
+import interfaces.Bank;
+import interfaces.BankAccount;
+import tools.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -171,7 +171,13 @@ public class BankImpl implements Bank {
     }
 
     public void addSubscriber(Client client) throws ClientException {
-        client.subscribe();
+        Boolean flag = false;
+        for(Subscriber subscriber : this.subscribers)
+            if (subscriber.getClient() == client)
+                flag = true;
+        if (flag)
+            throw new ClientException("This client already subscribed");
+        this.subscribers.add(client.subscribe());
     }
 
     public void removeSubscriber(Client client) throws ClientException {

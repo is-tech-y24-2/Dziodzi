@@ -1,7 +1,7 @@
-package Interfaces;
+package interfaces;
 
-import Entities.BankImpl;
-import Tools.BankException;
+import entities.BankImpl;
+import tools.BankException;
 
 import java.time.OffsetDateTime;
 
