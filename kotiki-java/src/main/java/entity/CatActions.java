@@ -7,7 +7,6 @@ import ru.itmo.enums.Breed;
 import ru.itmo.enums.Color;
 import ru.itmo.tools.DaoException;
 import ru.itmo.tools.ServiceException;
-
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Scanner;

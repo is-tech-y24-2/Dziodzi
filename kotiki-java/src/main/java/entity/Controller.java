@@ -2,7 +2,6 @@ package entity;
 
 import ru.itmo.tools.DaoException;
 import ru.itmo.tools.ServiceException;
-
 import java.util.Scanner;
 
 public class Controller {
