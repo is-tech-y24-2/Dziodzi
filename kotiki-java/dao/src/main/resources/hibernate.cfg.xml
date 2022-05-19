@@ -16,10 +16,10 @@
 
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
 
-    <mapping class="ru.itmo.entities.Cat"/>
-    <mapping class="ru.itmo.entities.Friendship"/>
-    <mapping class="ru.itmo.entities.Owner"/>
-    <mapping class="ru.itmo.entities.Ownership"/>
+    <mapping class="ru.itmo.kotiki.dao.entity.Cat"/>
+    <mapping class="ru.itmo.kotiki.dao.entity.Friendship"/>
+    <mapping class="ru.itmo.kotiki.dao.entity.Owner"/>
+    <mapping class="ru.itmo.kotiki.dao.entity.Ownership"/>
 
   </session-factory>
 </hibernate-configuration>

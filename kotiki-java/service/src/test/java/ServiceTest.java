@@ -2,10 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import ru.itmo.entities.*;
+import ru.itmo.entiity.*;
 import ru.itmo.enums.Breed;
 import ru.itmo.interfaces.DAO;
-import ru.itmo.interfaces.Service;
 import ru.itmo.tools.DaoException;
 import ru.itmo.tools.ServiceException;
 
@@ -26,11 +25,13 @@ public class ServiceTest {
     @Mock
     private DAO<Ownership> ownershipDAO;
 
-    private final Service service;
+    private final CatService catService;
+    private final OwnerService ownerService;
 
     public ServiceTest() {
         MockitoAnnotations.openMocks(this);
-        this.service = new ServiceImpl(catDAO, friendshipDAO, ownerDAO, ownershipDAO);
+        this.ownerService = new OwnerService(catDAO, friendshipDAO, ownerDAO, ownershipDAO);
+        this.catService = new CatService(catDAO, friendshipDAO, ownerDAO, ownershipDAO);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class ServiceTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
         { cat.setBreed(Breed.valueOf("Umpa Lumpa"));
         });
-        String exceptedMessage = "No enum constant ru.itmo.enums.Breed.Umpa Lumpa";
+        String exceptedMessage = "No enum constant ru.itmo.kotiki.dao.enums.Breed.Umpa Lumpa";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(exceptedMessage));
@@ -51,7 +52,7 @@ public class ServiceTest {
         Cat cat2 = new Cat();
         Cat cat3 = new Cat();
         given(catDAO.getAll()).willReturn(Arrays.asList(cat1, cat2, cat3));
-        List<Cat> cats = service.getAllCats();
+        List<Cat> cats = catService.getAllCats();
         Assertions.assertEquals(cats, Arrays.asList(cat1, cat2, cat3));
     }
 
@@ -61,7 +62,7 @@ public class ServiceTest {
         Owner owner2 = new Owner();
         Owner owner3 = new Owner();
         given(ownerDAO.getAll()).willReturn(Arrays.asList(owner1, owner2, owner3));
-        List<Owner> owners = service.getAllOwners();
+        List<Owner> owners = ownerService.getAllOwners();
         Assertions.assertEquals(owners, Arrays.asList(owner1, owner2, owner3));
     }
 
@@ -74,7 +75,7 @@ public class ServiceTest {
         cat.setOwnerId(1);
         given(ownerDAO.get(1)).willReturn(owner);
         given(catDAO.get(1)).willReturn(cat);
-        Owner ownerOwn = service.getCatOwner(1);
+        Owner ownerOwn = ownerService.getCatOwner(1);
         Assertions.assertEquals(ownerOwn, owner);
     }
 }

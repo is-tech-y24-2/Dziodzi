@@ -1,7 +1,5 @@
-package entities;
+package entity;
 
-import ru.itmo.entities.ServiceImpl;
-import ru.itmo.interfaces.Service;
 import ru.itmo.tools.DaoException;
 import ru.itmo.tools.ServiceException;
 
@@ -9,81 +7,83 @@ import java.util.Scanner;
 
 public class Controller {
     private static Scanner in;
-    private static Service service;
+    private static CatActions catActions;
+    private static OwnerActions ownerActions;
     public void start() throws ServiceException, DaoException {
         in = new Scanner(System.in);
-        this.service = new ServiceImpl();
+        this.catActions = new CatActions();
+        this.ownerActions = new OwnerActions();
         boolean flag = true;
         while (flag) {
             MenuActions.showMenu();
             Integer input = in.nextInt();
             switch (input) {
                 case 1:
-                    AddActions.addCat();
+                    catActions.addCat();
                     break;
 
                 case 2:
-                    AddActions.addFriendship();
+                    catActions.addFriendship();
                     break;
 
                 case 3:
-                    AddActions.addOwner();
+                    ownerActions.addOwner();
                     break;
 
                 case 4:
-                    AddActions.addOwnership();
+                    ownerActions.addOwnership();
                     break;
 
                 case 5:
-                    UpdateActions.updateCatName();
+                    catActions.updateCatName();
                     break;
 
                 case 6:
-                    UpdateActions.updateOwnerName();
+                    ownerActions.updateOwnerName();
                     break;
 
                 case 7:
-                    RemovalActions.removeCat();
+                    catActions.removeCat();
                     break;
 
                 case 8:
-                    RemovalActions.removeFriendship();
+                    catActions.removeFriendship();
                     break;
 
                 case 9:
-                    RemovalActions.removeOwner();
+                    ownerActions.removeOwner();
                     break;
 
                 case 10:
-                    RemovalActions.removeOwnership();
+                    ownerActions.removeOwnership();
                     break;
 
                 case 11:
-                    GetActions.getAllCats();
+                    catActions.getAllCats();
                     break;
 
                 case 12:
-                    GetActions.getAllFriendships();
+                    catActions.getAllFriendships();
                     break;
 
                 case 13:
-                    GetActions.getAllOwners();
+                    ownerActions.getAllOwners();
                     break;
 
                 case 14:
-                    GetActions.getAllOwnerships();
+                    ownerActions.getAllOwnerships();
                     break;
 
                 case 15:
-                    GetActions.getAllCatFriendships();
+                    catActions.getAllCatFriendships();
                     break;
 
                 case 16:
-                    GetActions.getAllOwnerOwnerships();
+                    ownerActions.getAllOwnerOwnerships();
                     break;
 
                 case 17:
-                    GetActions.getCatOwner();
+                    ownerActions.getCatOwner();
                     break;
 
                 case 18:

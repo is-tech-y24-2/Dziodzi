@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.itmo</groupId>
-    <artifactId>ru.itmo.kotiki-java</artifactId>
+    <groupId>ru.itmo.kotiki</groupId>
+    <artifactId>kotiki-java</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
@@ -18,33 +18,36 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <postgresql.version>42.3.4</postgresql.version>
+        <hibernate-core.version>5.6.8.Final</hibernate-core.version>
+        <dao.version>1.0</dao.version>
+        <service.version>1.0</service.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.3.4</version>
+            <version>${postgresql.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.6.8.Final</version>
+            <version>${hibernate-core.version}</version>
         </dependency>
 
-        <!-- Hibernate -->
-        <!-- to start need only this -->
         <dependency>
-            <groupId>ru.itmo</groupId>
+            <groupId>ru.itmo.kotiki</groupId>
             <artifactId>dao</artifactId>
-            <version>1.0</version>
+            <version>${dao.version}</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
-            <groupId>ru.itmo</groupId>
+            <groupId>ru.itmo.kotiki</groupId>
             <artifactId>service</artifactId>
-            <version>1.0</version>
+            <version>${service.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
