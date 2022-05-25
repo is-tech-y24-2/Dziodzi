@@ -1,9 +1,9 @@
 package ru.itmo.enums;
 
 public enum Breed {
-    Kitekat,
-    Whiskas,
-    Felix,
-    Kotopes,
-    Fat
+    KITEKAT,
+    WHISKAS,
+    FELIX,
+    KOTOPES,
+    FAT
 }

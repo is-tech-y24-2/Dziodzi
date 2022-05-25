@@ -1,4 +1,4 @@
-package ru.itmo.entities;
+package ru.itmo.entity;
 
 import javax.persistence.*;
 import java.util.Objects;

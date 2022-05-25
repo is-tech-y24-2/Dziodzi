@@ -1,4 +1,4 @@
-package ru.itmo.entities;
+package ru.itmo.entity;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
@@ -36,7 +36,7 @@ public class Cat {
 
     @Basic
     @Column(name = "owner_id", nullable = true)
-    private Integer owner_id;
+    private Integer ownerId;
 
     public Integer getId() {
         return this.id;
@@ -71,11 +71,11 @@ public class Cat {
     }
 
     public Integer getOwnerId() {
-        return owner_id;
+        return ownerId;
     }
 
     public void setOwnerId(Integer owner_id) {
-        this.owner_id = owner_id;
+        this.ownerId = owner_id;
     }
 
 
@@ -86,18 +86,18 @@ public class Cat {
         Cat cat = (Cat) o;
         return Objects.equals(id, cat.id) && Objects.equals(name, cat.name) &&
                 Objects.equals(breed, cat.breed) && Objects.equals(color, cat.color) &&
-                    Objects.equals(owner_id, cat.owner_id);
+                    Objects.equals(ownerId, cat.ownerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, breed, color, owner_id);
+        return Objects.hash(id, name, breed, color, ownerId);
     }
 
     @Override
     public String toString(){
         return "Id: " + id + ", Name: " + name + ", Breed: " + breed +
-                ", Color: " + color + ", Owner's Id: " + owner_id;
+                ", Color: " + color + ", Owner's Id: " + ownerId;
     }
 }
 
