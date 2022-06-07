@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Dziodzi.iml" filepath="$PROJECT_DIR$/.idea/Dziodzi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotiki-java/controller/controller.iml" filepath="$PROJECT_DIR$/kotiki-java/controller/controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotiki-java/dao/dao.iml" filepath="$PROJECT_DIR$/kotiki-java/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotiki-java/kotiki-java.iml" filepath="$PROJECT_DIR$/kotiki-java/kotiki-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotiki-java/service/service.iml" filepath="$PROJECT_DIR$/kotiki-java/service/service.iml" />
+    </modules>
+  </component>
+</project>
