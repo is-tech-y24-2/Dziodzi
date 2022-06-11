@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
 import ru.itmo.kotiki.entity.Owner;
 import ru.itmo.kotiki.entity.Ownership;
 import ru.itmo.kotiki.entity.ServiceOwnerImpl;
