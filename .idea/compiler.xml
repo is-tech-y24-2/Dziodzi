@@ -21,8 +21,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="banks-java" options="--add-modules java.base" />
-      <module name="controller" options="-parameters --add-modules java.base" />
-      <module name="dao" options="--add-modules java.base" />
+      <module name="controller" options="-parameters" />
+      <module name="dao" options="" />
     </option>
   </component>
 </project>
