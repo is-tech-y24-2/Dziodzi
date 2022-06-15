@@ -6,7 +6,7 @@ import ru.itmo.kotiki.tools.ServiceException;
 
 import java.util.List;
 
-public interface ServiceCat {
+public interface CatService {
     void addCat(Cat cat) throws ServiceException;
     void addFriendship(Friendship friendship) throws ServiceException;
 

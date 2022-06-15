@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class OwnerConverter  {
-        @Autowired
-        public OwnerConverter() {
-        }
+public class OwnerConverter {
+    @Autowired
+    public OwnerConverter() {
+    }
 
     public Owner convertToOwner(OwnerDTO ownerDto) {
         return new Owner(ownerDto.getName());

@@ -6,7 +6,7 @@ import ru.itmo.kotiki.tools.ServiceException;
 
 import java.util.List;
 
-public interface ServiceOwner {
+public interface OwnerService {
     void addOwner(Owner owner) throws ServiceException;
     void addOwnership(Ownership ownership) throws ServiceException;
 

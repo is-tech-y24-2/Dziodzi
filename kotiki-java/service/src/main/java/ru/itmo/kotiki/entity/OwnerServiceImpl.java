@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import ru.itmo.kotiki.entityDAO.CatDAO;
 import ru.itmo.kotiki.entityDAO.OwnerDAO;
 import ru.itmo.kotiki.entityDAO.OwnershipDAO;
-import ru.itmo.kotiki.interfaces.ServiceOwner;
+import ru.itmo.kotiki.interfaces.OwnerService;
 import ru.itmo.kotiki.tools.ServiceException;
 
 import java.util.List;
 
-@Service("serviceOwnerImpl")
-public class ServiceOwnerImpl implements ServiceOwner {
+@Service("ownerServiceImpl")
+public class OwnerServiceImpl implements OwnerService {
 
     @Autowired
     @Qualifier("ownerDAO")
@@ -52,16 +52,12 @@ public class ServiceOwnerImpl implements ServiceOwner {
     public void deleteOwner(Integer id) throws ServiceException {
         if (!ownerDAO.existsById(id))
             throw new ServiceException("Owner with this Id doesn't exist: " + id);
-        for (Cat cat : catDAO.findAll()) {
-            if (cat.getOwnerId().equals(id)) {
-                cat.setOwnerId(null);
-                catDAO.save(cat);
-            }
+        for (Cat cat : catDAO.findAllByOwnerId(id)) {
+            cat.setOwnerId(null);
+            catDAO.save(cat);
         }
-        for (Ownership ownership : ownershipDAO.findAll()) {
-            if (ownership.getOwnerId().equals(id)) {
-                ownershipDAO.delete(ownership);
-            }
+        for (Ownership ownership : ownershipDAO.findAllByOwnerId(id)) {
+            ownershipDAO.delete(ownership);
         }
         ownerDAO.delete(ownerDAO.getById(id));
     }

@@ -6,21 +6,21 @@ import ru.itmo.kotiki.entityDAO.CatDAO;
 import ru.itmo.kotiki.entityDAO.FriendshipDAO;
 import ru.itmo.kotiki.enums.Breed;
 import ru.itmo.kotiki.enums.Color;
-import ru.itmo.kotiki.interfaces.ServiceCat;
+import ru.itmo.kotiki.interfaces.CatService;
 import ru.itmo.kotiki.tools.ServiceException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Service("serviceCatImpl")
-public class ServiceCatImpl implements ServiceCat {
+@Service("catServiceImpl")
+public class CatServiceImpl implements CatService {
 
     private final CatDAO catDAO;
     private final FriendshipDAO friendshipDAO;
 
     @Autowired
-    public ServiceCatImpl(CatDAO catDAO, FriendshipDAO friendshipDAO) {
+    public CatServiceImpl(CatDAO catDAO, FriendshipDAO friendshipDAO) {
         this.catDAO = catDAO;
         this.friendshipDAO = friendshipDAO;
     }

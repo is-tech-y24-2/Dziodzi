@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.itmo.kotiki.entity.Cat;
 import ru.itmo.kotiki.entity.Owner;
-import ru.itmo.kotiki.entity.ServiceCatImpl;
-import ru.itmo.kotiki.entity.ServiceOwnerImpl;
+import ru.itmo.kotiki.entity.CatServiceImpl;
+import ru.itmo.kotiki.entity.OwnerServiceImpl;
 import ru.itmo.kotiki.enums.Breed;
 import ru.itmo.kotiki.enums.Color;
 import ru.itmo.kotiki.tools.ServiceException;
@@ -19,14 +19,14 @@ import static org.mockito.Mockito.when;
 
 public class ServiceTest {
     private Session session;
-    private ServiceOwnerImpl ownerService;
-    private ServiceCatImpl catService;
+    private OwnerServiceImpl ownerService;
+    private CatServiceImpl catService;
 
     @Before
     public void setup() throws ServiceException {
         session = mock(Session.class);
-        ownerService = mock(ServiceOwnerImpl.class);
-        catService = mock(ServiceCatImpl.class);
+        ownerService = mock(OwnerServiceImpl.class);
+        catService = mock(CatServiceImpl.class);
     }
 
     @Test
