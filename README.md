@@ -18,4 +18,5 @@
 
 ## Мем в подарок:
 
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+
+[logo]: /upload/firmenniy-stil/footer-logo-svg.svg "Наш логотип"
