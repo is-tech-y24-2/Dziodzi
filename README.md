@@ -18,4 +18,4 @@
 
 ## Мем в подарок:
 
-![logo](https://disk.yandex.ru/i/2VnDFX_CrWG9eg) "Почему?"
+![logo](/disk.yandex.ru/i/2VnDFX_CrWG9eg)
