@@ -18,4 +18,4 @@
 
 ## Мем в подарок:
 
-![logo](https://wampi.ru/image/RW5DaOI)
+![Image](https://wampi.ru/image/RW5DaOI)
