@@ -18,4 +18,4 @@
 
 ## Мем в подарок:
 
-![Image](https://wampi.ru/image/RW5DaOI.png)
+![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
