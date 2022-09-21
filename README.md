@@ -18,4 +18,4 @@
 
 ## Мем в подарок:
 
-![Image](https://image.ibb.co/g0SdPw/)
+![Image](https://image.ibb.co/g0SdPw.png)
