@@ -19,4 +19,4 @@
 ## Мем в подарок:
 
 
-[logo]: /upload/firmenniy-stil/footer-logo-svg.svg "Наш логотип"
+<a href="https://ibb.co/fvcsSBD"><img src="https://i.ibb.co/4dQHf91/aaa.jpg" alt="aaa" border="0"></a>
