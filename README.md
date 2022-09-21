@@ -18,4 +18,4 @@
 
 ## Мем в подарок:
 
-[logo]: https://yandex.ru/images/search?pos=4&img_url=http%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb1%2Fe0%2F8f%2Fb1e08f3cf1e025a6bb8900380c8dec87.jpg&text=мем%20почему&lr=2&rpt=simage&source=serp "Почему?"
+[logo]: https://disk.yandex.ru/i/2VnDFX_CrWG9eg "Почему?"
