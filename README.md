@@ -4,8 +4,8 @@
 
 ### Учебный проект, выполненный в рамках дисциплины "Технологии программирования на Java"
 
-- Используемый технологический стек: Java, Maven, Spring, Hibernate, PostgreSQL.
-- CI реализован с помощью GitHub Actions
+- Используемый технологический стек: Java, Maven, Spring, Hibernate, PostgreSQL;
+- CI реализован с помощью GitHub Actions.
 
 ---
 
